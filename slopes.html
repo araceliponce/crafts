@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="slopes.css">
+  <title>Slopes</title>
+</head>
+
+<body>
+  <div class="main-grid">
+    <div>
+      <p class="logo">SLOPES</p>
+      <p class="text-subdued">copyright here 2022</p>
+    </div>
+    <div class="stack">
+      <header class="flex-row justify-content-space-between align-items-center">
+        <button id="menuToggle" aria-controls='nav-grid' aria-expanded="false" class="menu-toggle">Menu</button>
+        <nav class="primary-nav">
+          <ul class="nav-list flex-row">
+            <li>Lorem</li>
+            <li>Quod</li>
+            <li>A</li>
+            <li>Laborum</li>
+          </ul>
+        </nav>
+      </header>
+      <div id="nav-grid" class="nav-grid grid-even-columns align-content-center">
+        <div>
+          <h3>Lorem.</h3>
+          <ul>
+            <li>Lorem.</li>
+            <li>Autem?</li>
+            <li>Laborum!</li>
+            <li>Impedit?</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Esse.</h3>
+          <ul>
+            <li>Lorem.</li>
+            <li>Autem?</li>
+            <li>Laborum!</li>
+            <li>Impedit?</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Recusandae.</h3>
+          <ul>
+            <li>Lorem.</li>
+            <li>Autem?</li>
+            <li>Laborum!</li>
+            <li>Impedit?</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Veniam?</h3>
+          <ul>
+            <li>Lorem.</li>
+            <li>Autem?</li>
+            <li>Laborum!</li>
+            <li>Impedit?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-grid  align-content-center">
+        <main class="grid-70-30">
+          <div class="setenta">
+            <h1>
+              Get fit to hit the slopes - winter in Sweden
+            </h1>
+          </div>
+          <div class="treinta">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur a molestiae, aspernatur atque delectus
+              fugiat enim deserunt beatae corrupti quas et error nam optio illum labore tempore sequi recusandae quia!
+            </p>
+            <a class="button" href="#">Send request</a>
+          </div>
+        </main>
+      </div>
+
+      <footer>
+        <p>Follow us:</p>
+        <ul class="flex-row-wrap-gap">
+          <li><img height="32" width="32" src="https://cdn.simpleicons.org/facebook/0cf" /></li>
+          <li><img height="32" width="32" src="https://cdn.simpleicons.org/instagram/0cf" /></li>
+          <li><img height="32" width="32" src="https://cdn.simpleicons.org/twitter/0cf" /></li>
+          <li><img height="32" width="32" src="https://cdn.simpleicons.org/youtube/0cf" /></li>
+        </ul>
+
+      </footer>
+
+      <div class="content-grid-bg">
+      </div>
+      <div class="nav-grid-bg"></div>
+
+      <div class="video-bg">
+        <video autoplay muted loop src="./assets/video-bg.mp4"></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video by Pavel Danilyuk: https://www.pexels.com/video/palm-leaves-and-the-sky-7318864/ -->
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainGrid = document.querySelector('.main-grid');
+
+    menuToggle.addEventListener('click', () => {
+      mainGrid.toggleAttribute('data-big-nav-open');
+      const menuState = menuToggle.getAttribute('aria-expanded');
+      if (menuState == 'false') {
+        menuToggle.setAttribute('aria-expanded', true);
+      } else {
+        menuToggle.setAttribute('aria-expanded', false);
+      }
+    })
+  </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --space: 1.3rem;
+  --body-padding: 1rem;
+  --marginalian-width: 50rem;
+  --header-min-h: 9rem;
+
+  --bg: lightgreen;
+  --accent: #ffdb00;
+  --accent2: #ff0157;
+  --black: cornflowerblue;
+
+  --day: white;
+  --night: black;
+}
+
+body {
+  background: var(--bg);
+  font-family: sans-serif;
+}
+
+.marginalian-wrapper {
+  line-height: 1.5;
+  min-height: 300vh;
+  max-width: var(--marginalian-width);
+  margin-inline: auto;
+  /* display: grid; */
+  position: relative;
+  overflow: hidden;
+
+  padding: 1rem;
+  background: #fff;
+  background-image: radial-gradient(lightgreen 1px, transparent 0);
+  background-size: 1.3rem 1.3rem;
+  /* background-position: -1rem -1rem; */
+
+}
+
+/* Utility classes */
+
+
+.header {
+  --bg: red;
+  position: fixed;
+  left: 50%;
+  top: calc(var(--body-padding) * 4);
+  width: var(--marginalian-width);
+  /* padding: 1rem; */
+  box-shadow: 0 -3rem 0 0 var(--bg);
+  /* puedes usar un .header:before y darle medidas, pero como .header es flex, aunqque le pongas width 100% no toma en cuenta los paddings de header (te quedas con un contenedor un poco angosto de los costados) */
+
+  z-index: 9;
+  /* suponiendo que tenga 8 o 9? hermanas,  */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  /* jc changes on smaller */
+
+  align-items: center;
+
+  transition: 0.75s;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  padding: 1rem 0;
+
+  height: 8rem;
+  /* necesita un min-height ? :( */
+}
+
+.header-logo {
+  color: var(--black);
+  font-weight: 700;
+  font-size: var(--header-logo-font-size);
+  line-height: 1;
+  transition: all .2s ease;
+}
+
+/* o header img */
+.logo-icon {
+  width: 2rem;
+}
+
+.day-text {
+  color: var(--day);
+}
+
+.night-text {
+  color: var(--night);
+}
+
+.header-nav {
+  position: relative;
+
+  opacity: 0;
+  display: var(--header-nav-display);
+  flex-flow: row wrap;
+  transform: translateX(5rem);
+  transition: .2s all ease-in;
+}
+
+.header-nav li {
+  list-style: none;
+  /* margin-left: 50px; */
+  height: 100%;
+}
+
+.header-nav a {
+  text-decoration: none;
+  /* color: #fff; */
+  font-weight: 300;
+  font-size: 1.5rem;
+
+  padding: .3em .5em;
+}
+
+/* .header[data-smaller=true] {
+  background: lightsalmon;
+  padding: .5rem;
+}
+
+*/
+[data-smaller=false] {
+  --header-logo-font-size: 5rem;
+  --header-nav-font-size: .6rem;
+  --header-nav-display: none;
+}
+
+[data-smaller=true] {
+  --header-logo-font-size: 2rem;
+  --header-nav-font-size: 1rem;
+  --header-nav-display: flex;
+
+  justify-content: space-between;
+
+}
+
+[data-smaller=true] .header-nav {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.header-nav a {
+  color: cornflowerblue;
+  font-size: 1rem;
+}
+
+.header-nav a:hover {
+  border-bottom: .1em solid #ff0157;
+}
+
+@media only screen and (max-width:600px) {
+  .header-logo {
+    /* display: none; */
+    --header-logo-font-size: 1rem;
+
+  }
+}
+
+
+.header+* {
+  margin-top: var(--body-padding);
+}
+
+.main {
+  padding-top: var(--header-min-h);
+  /* margin-top no funciona, debe ser padding */
+}
+
+figure,
+picture,
+img {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+figure {
+  --padding: 1.5rem;
+  --radius: 1rem;
+  max-width: 80%;
+  margin-inline: auto;
+  padding: var(--padding);
+  border-radius: var(--radius);
+  border: .2rem solid var(--accent2);
+  overflow: hidden;
+}
+
+figure img {
+  display: block;
+  border-radius: calc(var(--radius) - var(--padding));
+  /* importante d e j a r   e s p a c i o s antes y despues de los signos */
+  background-color: lightcoral;
+}
+
+blockquote {
+  background-color: lightblue;
+  font-style: italic;
+  margin: 1.25em 0 1.4em;
+  min-height: 60px;
+}
+
+
+blockquote {
+  --accent-color: #ff1343;
+  position: relative;
+  padding: 0 3rem;
+
+
+}
+
+/* hacemos las comillas absolutas al blockquote en lugar de al p */
+blockquote::before,
+blockquote::after {
+  position: absolute;
+  color: var(--accent-color);
+  font-size: 6rem;
+  font-family: serif;
+}
+
+blockquote::before {
+  content: open-quote;
+
+  left: -.5rem;
+  top: -3rem;
+}
+
+blockquote::after {
+  content: close-quote;
+  bottom: -5rem;
+  right: 0;
+}

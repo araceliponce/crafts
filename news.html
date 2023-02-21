@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <title>Frontend Mentor | News homepage</title>
+  <link rel="stylesheet" href="news.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="flex-row-wrap-gap align-i-center header">
+      <h1>LOGO</h1>
+      <nav class="msa">
+        <ul class="nav-list">
+          <button type="button" aria-label="Toggle mobile navigation">
+            <!-- pendiente mobile navigation -->
+            <img aria-hidden="true" src="./assets/icon-menu.svg" class="menu">
+          </button>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">New</a></li>
+          <li><a href="#">Popular</a></li>
+          <li><a href="#">Trending</a></li>
+          <li><a href="#">Categories</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="main-content grid">
+
+        <div class="flex-row-wrap-gap flex-0 star-article">
+          <picture class="star-picture has-full-width">
+            <img src="./assets/image-web-3-mobile.jpg" alt="web3" />
+          </picture>
+          <div class="grid-even-pair">
+            <h1 class="star-title ma">The Bright Future of Web 3.0?</h1>
+            <div class="star-content align-c-center">
+              <p class="star-subtitle"> We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise? </p>
+              <a href="#" class="cta">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="side-col flex-col-wrap-gap flex-1 p-1">
+          <!-- <div class="p-1"> -->
+          <h2 class="title-colored">New</h2>
+          <ul class="new-articles flex-1">
+            <!-- toma todo el alto que puede -->
+            <li class="new-article">
+              <h3 class="new-title"><a href="#">New Hydrogen VS Electric Cars</a></h3>
+              <p class="new-content"> Will hydrogen-fueled cars ever catch up to EVs? </p>
+            </li>
+            <li class="new-article">
+              <h3 class="new-title"><a href="#">The Downsides of AI Artistry</a></h3>
+              <p class="new-content"> What are the possible adverse effects of on-demand AI image generation? </p>
+            </li>
+            <li class="new-article">
+              <h3 class="new-title"><a href="#">Is VC Funding Drying Up?</a></h3>
+              <p class="new-content"> Private funding by VC firms is down 50% YOY. We take a look at what that means. </p>
+            </li>
+          </ul>
+          <!-- </div> -->
+        </div>
+        <ol class="top-articles mt">
+          <li class="flex-row-wrap-gap top-article ">
+            <!-- lleva para contrarrestar el align items stretch predeterminado -->
+            <img class="random-to-small" src="https://unsplash.it/800/500" alt="">
+            <div class="flex-col-wrap-gap flex-1 has-grouped-text">
+              <h3 class="top-title"><a href="#">Reviving Retro PCs</a></h3>
+              <p class="top-content">What happens when old PCs are given modern upgrades?</p>
+            </div>
+          </li>
+          <li class="flex-row-wrap-gap top-article"> <img class="random-to-small" src="https://unsplash.it/700/700" alt="">
+            <div class="flex-col-wrap-gap flex-1 has-grouped-text">
+              <h3 class="top-title"><a href="#">Top 10 Laptops of 2022</a></h3>
+              <p class="top-content">Our best picks for various needs and budgets.</p>
+            </div>
+          </li>
+          <li class="flex-row-wrap-gap top-article"> <img class="random-to-small" src="https://unsplash.it/600/600" alt="">
+            <div class="flex-col-wrap-gap flex-1 has-grouped-text">
+              <h3 class="top-title"><a href="#">The Growth of Gaming</a></h3>
+              <p class="top-content">How the pandemic has sparked fresh opportunities.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

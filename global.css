@@ -1,0 +1,71 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  border: .1rem solid transparent;
+}
+
+
+/* fin de reset */
+
+
+body {
+  line-height: 1.6;
+}
+
+.button {
+  background-color: white;
+  border-radius: 2rem;
+  padding: .3rem;
+}
+
+
+
+/* Utilitty classes */
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.mia {
+  margin-inline: auto;
+}
+
+.pia {
+  padding-inline: auto;
+}
+
+.flex-row-wrap-gap {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gap, .5rem);
+}
+
+.align-i-center {
+  align-items: center;
+  /* background: white; */
+  line-height: 1;
+}
+
+.align-c-center {
+  align-content: center;
+}
+
+
+.d-none {
+  display: none;
+}

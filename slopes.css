@@ -1,0 +1,338 @@
+:root {
+  --clr-primary-400: cornflowerblue;
+  --clr-neutral-100: #fff;
+  --clr-neutral-300: hsl(0 0% 70%);
+  --clr-neutral-900: #000;
+
+  --font-size-300: 0.975rem;
+  --font-size-400: 1.125rem;
+  --font-size-500: 1.25rem;
+  --font-size-600: 1.75rem;
+  --font-size-700: 3rem;
+
+  --space-xs: 1rem;
+  --space-sm: 1.5rem;
+  --space: 2rem;
+  --space-md: 3rem;
+  --space-lg: 4rem;
+
+  --body-padding: var(--space);
+  --body-padding-double: calc(var(--body-padding)*2);
+  --logo-length: 15ch;
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: var(--body-padding);
+  font-size: var(--fs-400);
+  font-family: system-ui, sans-serif;
+  display: grid;
+  min-height: 100vh;
+  /* height: calc(100vh - (var(--body-padding) * 2)); */
+}
+
+h1 {
+  font-size: var(--font-size-700);
+  font-weight: 700;
+}
+
+.flex-row {
+  display: flex;
+  gap: var(--gap, var(--space-xs));
+
+  /* +++ */
+  flex-flow: row wrap;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.align-content-center {
+  align-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+/* .grid-even-columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+} */
+
+.grid-even-columns {
+  --min-col-width: 12ch;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-col-width, 5rem), 1fr));
+  gap: var(--gap, var(--space-md));
+}
+
+.grid-70-30 {
+  display: grid;
+  gap: var(--gap, var(--space-xs));
+  grid-template-columns: 60% 40%;
+
+  /* padding-top: var(--body-padding); */
+
+}
+
+@media screen and (max-width: 40rem) {
+  .grid-70-30 {
+    display: block;
+  }
+
+  .main-grid {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.setenta {
+  background-color: royalblue;
+}
+
+/* grow - shrink- basis */
+.treinta {
+
+  background-color: pink;
+  padding-bottom: var(--body-padding);
+  /* de modo que no choque con .footer */
+
+}
+
+.stack {
+  display: grid;
+  grid-template-areas: 'stack';
+  padding: var(--body-padding);
+  /* este padding junto con el inset de calc(-1 * var(--body-padding)) del wrapper de video, nos ahorra el colocar paddings a cada hijo de .stack */
+  /* ++ */
+  position: relative;
+}
+
+.stack>* {
+  grid-area: stack;
+}
+
+.stack header {
+  align-self: start;
+  z-index: 100;
+}
+
+.stack {
+  /* padding: var(--body-padding-double) var(--body-padding); */
+  /* para que el footer no choque con las letras cuando estas llenan el contenedor */
+}
+
+.stack footer {
+  align-self: end;
+  z-index: 100;
+}
+
+.nav-list {
+  --gap: 2rem;
+  list-style: none;
+  font-weight: 700;
+}
+
+@media screen and (min-width:40rem) {
+  .nav-list {
+    --gap: 4rem;
+  }
+}
+
+/* .main-grid has two columns, the simple one and .stack */
+.main-grid {
+  display: flex;
+  flex-flow: row wrap;
+  grid-template-columns: 150px 1fr;
+  gap: 0;
+  /* ?two gaps */
+  outline: .1rem solid pink;
+
+  /* +++ */
+  position: relative;
+
+}
+
+.main-grid> :nth-child(1) {
+  flex-basis: 0;
+  height: fit-content;
+  align-content: center;
+  min-width: var(--logo-length, 10ch);
+}
+
+@media screen and (max-width:50rem) {
+
+  .main-grid> :nth-child(1) {
+    /* padding: var(--body-padding) var(--body-padding) 0;
+    background-color: transparent; funciona pero en este caso no, ya que usamos un video como bg*/
+    position: absolute;
+    top: var(--body-padding);
+    left: var(--body-padding);
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .stack header {
+    padding-top: var(--body-padding);
+  }
+
+  .content-grid {
+    padding-top: calc(var(--body-padding) * 2);
+  }
+
+  .stack {
+    padding: 0;
+    /* en pantallas angostas .stack ocupa todo el espacio, el video bg deberia expandirse igualmente */
+  }
+}
+
+.main-grid> :nth-child(2) {
+  /* text-align: center;
+  display: grid;
+  align-content: space-between; */
+  /* flex-basis: 1; */
+
+}
+
+.nav-grid {
+  color: var(--clr-neutral-900);
+  z-index: 10;
+}
+
+.content-grid-bg,
+.nav-grid-bg {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 500ms ease;
+}
+
+.content-grid-bg {
+  background: var(--clr-primary-400);
+}
+
+.nav-grid-bg {
+  background: var(--clr-neutral-100);
+}
+
+.nav-grid-bg,
+.nav-grid {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 500ms ease;
+}
+
+.nav-grid-bg {
+  transition-delay: 500ms;
+}
+
+.content-grid-bg,
+.content-grid {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 500ms ease;
+}
+
+[data-big-nav-open] .nav-grid-bg,
+[data-big-nav-open] .nav-grid {
+  clip-path: inset(0 0 0 0);
+}
+
+[data-big-nav-open] .nav-grid {
+  transition-delay: 200ms;
+}
+
+[data-big-nav-open] .content-grid-bg,
+[data-big-nav-open] .content-grid {
+  clip-path: inset(0 0 0 100%);
+}
+
+.closed-clip-path {
+  clip-path: inset(0 100% 0 0) !important;
+}
+
+.content-grid {
+  display: grid;
+  color: var(--clr-neutral-100);
+}
+
+.stack {
+  position: relative;
+  flex: 1;
+  /* no se si ponerle min o widths */
+}
+
+.video-bg,
+.nav-grid-bg,
+.content-grid-bg {
+  position: absolute;
+  inset: calc(-1 * var(--body-padding));
+}
+
+.content-grid-bg {
+  z-index: -2;
+  mix-blend-mode: multiply;
+  background: var(--clr-primary-400);
+}
+
+.nav-grid-bg {
+  z-index: -1;
+  background: white;
+  mix-blend-mode: saturation;
+  transition: clip-path .3s ease;
+
+
+}
+
+.video-bg {
+  z-index: -3;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+
+/* Typically, a user will first hover over an element, then bring it to focus, then activate it. So, the best way to order your pseudo-class styles are :hover then :focus then :active . */
+/* if you click (or tap) a btn it will have the focus until you click other element, only one element is on focus at the time */
+button {
+  padding: .3rem;
+  outline: .3rem solid transparent;
+  border: none;
+  border-radius: 100vh;
+  cursor: pointer;
+  transition: .2s all ease;
+}
+
+button:hover {
+  background-color: rgb(58, 101, 243);
+}
+
+button:focus {
+  background-color: white;
+}
+
+button:active {
+  outline: .3rem solid lightblue;
+}
